@@ -5,7 +5,6 @@
 ## Updated on 2020 Agust 17th
 
 
-
 ##To smooth death counts with P-splines over a given ranges of ages, the "Mort1Dsmooth" function of the MortalitySmooth package in R (Camarda 2012) is used.
 
 library("MortalitySmooth")
@@ -17,7 +16,6 @@ fit <- "Mort1Dsmooth"(x = age, y = D, offset = log(E))
 
 summary(fit)
 fit1Dfor <- predict(fit, newdata = x,se.fit = TRUE)
-
 se <- fit1Dfor[["se.fit"]]
 
 ##The "predict.Mort1Dsmooth" function can be used to obtain predictions of the smoothed mortality curve over very narrow age intervals (i.e. narrower than the original 1-year intervals), 
