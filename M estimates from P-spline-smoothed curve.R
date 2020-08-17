@@ -32,13 +32,14 @@ logit.mu.hat <- log(mu.hat/(1-mu.hat))
 b1 <- (logit.mu.hat[ age.narrow == 90]-logit.mu.hat[ age.narrow==70])/20
 b2 <- (logit.mu.hat[ age.narrow ==100]-logit.mu.hat[ age.narrow==80])/20
 
+
 ##Basic numerical integration methods are used, such as the left Riemann sum, to compute the smoothed survival function corresponding to the P-splines smoothed mortality curve, mu.hat:
 
-l.hat <- exp(-cumsum(mu.hat ∗ delta))
+l.hat <- exp(-cumsum(mu.hat * delta))
 
 ##The corresponding smoothed density function, which describes the age-at-death distribution, is then readily obtained:
 
-d.hat <- mu.hat ∗ l.hat
+d.hat <- mu.hat * l.hat
 
 ##Finally, the estimated value of M is given by the age at which the peak of the heap of deaths occurs in the smoothed density function:
 
@@ -46,8 +47,7 @@ M.hat <- age.narrow[which.max(d.hat)]
 
 ##Having determined M, its derivatives is then achieved using the data at and after M by:
 
-dM     <- d.hat[age.narrow==M.hat]
-d(M+)  <- sum(d.hat)
-e(M)   <- sum((age.narrow-M.hat)* d.hat*0.01)/sum(d.hat*0.01)
-SD(M+) <- (sum((age.narrow-M.hat)^2* d.hat*0.01)/sum(d.hat*0.01))^0.5
-
+dM        <- d.hat[age.narrow==M.hat]
+d(Mplus)  <- sum(d.hat)
+e(M)      <- sum((age.narrow-M.hat)* d.hat*0.01)/sum(d.hat*0.01)
+SD(Mplus) <- (sum((age.narrow-M.hat)^2* d.hat*0.01)/sum(d.hat*0.01))^0.5
