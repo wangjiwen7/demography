@@ -1,5 +1,5 @@
 ## Project: Mortality in G7 countries
-# G7: United States (US), Canada, France, Germany, Italy, Japan, and the United Kingdom (UK)
+ # G7: United States (US), Canada, France, Germany, Italy, Japan, and the United Kingdom (UK)
 ## An R routine for computing M estimates from P-spline-smoothed mortality curves
 ## Author: Karen Cheung, Jiwen Wang
 ## Updated on 2020 Agust 17th
