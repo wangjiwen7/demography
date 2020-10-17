@@ -1,7 +1,7 @@
 ## Project: Mortality in G7 countries
  # G7: United States (US), Canada, France, Germany, Italy, Japan, and the United Kingdom (UK)
 ## An R routine for computing M estimates from P-spline-smoothed mortality curves
-## Author: Karen Cheung, Jiwen Wang
+## Author: 
 ## Updated on 2020 Agust 17th
 
 
@@ -25,12 +25,6 @@ delta <- 0.001
 age.narrow <- seq(from = min(age), to = max(age), by = delta)
 log.mu.hat <- predict(object = fit, newdata = age.narrow)
 mu.hat <- exp(log.mu.hat)
-
-##Slope b using age 70 and 90 ,and 80 and 100, is then returned by:
-
-logit.mu.hat <- log(mu.hat/(1-mu.hat))
-b1 <- (logit.mu.hat[ age.narrow == 90]-logit.mu.hat[ age.narrow==70])/20
-b2 <- (logit.mu.hat[ age.narrow ==100]-logit.mu.hat[ age.narrow==80])/20
 
 
 ##Basic numerical integration methods are used, such as the left Riemann sum, to compute the smoothed survival function corresponding to the P-splines smoothed mortality curve, mu.hat:
