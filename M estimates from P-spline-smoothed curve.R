@@ -21,7 +21,7 @@ se <- fit1Dfor[["se.fit"]]
 ##The "predict.Mort1Dsmooth" function can be used to obtain predictions of the smoothed mortality curve over very narrow age intervals (i.e. narrower than the original 1-year intervals), 
  #in order to come closer to the concept of force of mortality (or instantaneous death rate). In our case, each 1-year interval is subdivided into 1,000 equal parts, then:
 
-delta <- 0.001
+delta <- 0.01
 age.narrow <- seq(from = min(age), to = max(age), by = delta)
 log.mu.hat <- predict(object = fit, newdata = age.narrow)
 mu.hat <- exp(log.mu.hat)
